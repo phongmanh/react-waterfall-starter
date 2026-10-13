@@ -1,0 +1,15 @@
+name: Claude hooks
+on:
+  push:
+    branches: [main]
+    paths: ['.claude/hooks/**', '.github/workflows/claude-hooks.yml']
+  pull_request:
+    paths: ['.claude/hooks/**', '.github/workflows/claude-hooks.yml']
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version-file: .nvmrc }
+      - run: node --test '.claude/hooks/test/*.test.mjs'

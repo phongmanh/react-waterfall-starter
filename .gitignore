@@ -1,0 +1,33 @@
+# Dependencies & build output
+node_modules
+dist
+dist-ssr
+coverage
+playwright-report
+test-results
+blob-report
+*.tsbuildinfo
+.scaffold/
+
+# Env & secrets (VITE_* values in committed .env files are public anyway)
+.env
+.env.local
+.env.*.local
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Claude Code personal files
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Editors & OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sw?
