@@ -29,7 +29,7 @@ try {
   lines.push(
     awaiting
       ? `Phase ${awaiting[0]} is awaiting the user's approval: do not start the next phase until they explicitly approve.`
-      : 'Continue with the react-waterfall skill. Re-read the approved documents before working on the current phase.',
+      : 'Continue with the react-waterfall skill. Read only the sections of the approved documents that the next task needs (list headings with grep first), not whole documents.',
   )
   process.stdout.write(lines.join('\n') + '\n')
   process.exit(0)
