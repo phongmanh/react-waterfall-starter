@@ -62,6 +62,13 @@ Typos, broken links and other corrections that don't change meaning need no CR. 
 ### 5. Standards
 `references/best-practices.md` is the coding standard, and `references/tech-stack.md` is the default stack and setup. If the target project has its own CLAUDE.md, lint config or conventions, those win where they conflict. Record each conflict in the design doc.
 
+### 6. Short sessions and the handoff
+Keep sessions short to save tokens: one session does one unit of work and then hands off, so the user can `/clear` and start fresh.
+- **One unit per session:** P1 interview + draft · P1 revisions · P2 draft · one or two P3 modules · P4 test run + report · P5 · P6. Stop at a gate, at a module boundary, or when the context is getting large. Don't start the next unit in the same session.
+- **Cache inputs once.** External sources (design artifacts, backend contracts, sibling repos) are fetched once and saved under `docs/waterfall/inputs/`, with source URL, version and commit in `inputs/README.md`. Later sessions read the cache and never re-fetch or re-clone unless the handoff says the source changed.
+- **Before ending a session:** update the phase doc and the implementation log, rewrite the `## Handoff` section of STATUS.md (template format, ≤ 15 lines: last session, state, next action, what to load, inputs, what's waiting on the user), and commit if the commit policy says so. Then tell the user in one line: *"Ready for `/clear`. The next session starts from the handoff."*
+- **Starting after `/clear`:** the SessionStart hook injects the handoff. Do its next action, load what it lists, then read more on demand.
+
 ---
 
 ## Phase 1 — Requirements (what, not how)

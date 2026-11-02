@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // SessionStart hook: tells Claude where the waterfall project stands, so a new,
 // resumed or compacted session continues the right phase instead of guessing.
-import { PHASE_NAMES, STATUS_PATH, loadStatus, openChangeRequests, projectDir, readStdinJson } from './lib/status.mjs'
+import { PHASE_NAMES, STATUS_PATH, loadHandoff, loadStatus, openChangeRequests, projectDir, readStdinJson } from './lib/status.mjs'
 
 try {
   const input = await readStdinJson()
@@ -31,6 +31,14 @@ try {
       ? `Phase ${awaiting[0]} is awaiting the user's approval: do not start the next phase until they explicitly approve.`
       : 'Continue with the react-waterfall skill. Re-read the approved documents before working on the current phase.',
   )
+  const handoff = loadHandoff(projectDir(input))
+  if (handoff) {
+    lines.push(
+      '',
+      'Handoff from the last session (STATUS.md "## Handoff"). Start from its next action, load only what it lists, and rewrite it before this session ends:',
+      handoff,
+    )
+  }
   process.stdout.write(lines.join('\n') + '\n')
   process.exit(0)
 } catch (err) {

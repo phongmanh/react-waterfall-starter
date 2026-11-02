@@ -56,6 +56,29 @@ export function parseStatus(text) {
   return result
 }
 
+const HANDOFF_MAX_LINES = 30
+const HANDOFF_MAX_CHARS = 3000
+
+/** The "## Handoff" section's text (comments and blank lines removed, capped), or '' if absent. */
+export function parseHandoff(text) {
+  const m = text.match(/^##\s+Handoff\s*$([\s\S]*?)(?=^##\s|(?![\s\S]))/im)
+  if (!m) return ''
+  const lines = stripComments(m[1])
+    .split(/\r?\n/)
+    .filter((l) => l.trim())
+  const capped = lines.slice(0, HANDOFF_MAX_LINES).join('\n')
+  const truncated = lines.length > HANDOFF_MAX_LINES || capped.length > HANDOFF_MAX_CHARS
+  return capped.slice(0, HANDOFF_MAX_CHARS) + (truncated ? '\n… (truncated: keep the Handoff section short)' : '')
+}
+
+export function loadHandoff(dir) {
+  try {
+    return parseHandoff(readFileSync(path.join(dir, STATUS_PATH), 'utf8'))
+  } catch {
+    return ''
+  }
+}
+
 export function loadStatus(dir) {
   try {
     return parseStatus(readFileSync(path.join(dir, STATUS_PATH), 'utf8'))

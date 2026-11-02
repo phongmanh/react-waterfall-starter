@@ -36,3 +36,14 @@
 | | | | | |
 
 <!-- Status: Proposed · Approved · Rejected · Implemented. A CR is Implemented only when every affected doc, file, test and RTM row is updated. -->
+
+## Handoff
+
+<!-- Rewritten at the end of every session (skill rule 6); the SessionStart hook injects it after /clear. ≤ 15 lines, 30 max.
+     Facts only. Anything a later phase needs for good belongs in a phase doc, not here. -->
+- **Last session:** <date> — <what got done, one line>
+- **State:** <e.g. "P1 awaiting approval" · "P3 module 4/9 (menu) in progress, AC-012.3 failing">
+- **Next action:** <the exact first step for the next session>
+- **Load:** <files and sections or line ranges to read first>
+- **Inputs:** <where external sources are cached in the repo, with versions and commits>
+- **Waiting on user:** <decision or approval, or "nothing">
