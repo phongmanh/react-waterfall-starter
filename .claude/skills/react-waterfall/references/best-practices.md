@@ -198,7 +198,7 @@ Keep a single source of truth, lift state only as high as needed, and derive eve
 ## 13. Styling
 
 - Use Tailwind utilities in JSX. When a pattern repeats, extract a component, not an `@apply` class.
-- Put design tokens (colours, spacing, fonts) in `@theme` in `index.css`, named after the design doc.
+- Put design tokens (colours, spacing, fonts) in `@theme` in `index.css`, named after the design doc. The default token set and component recipes are in `design-style.md`; never write a hex value in JSX.
 - Merge classes with `cn()`, which combines `clsx` and `tailwind-merge`, so callers can override:
   ```ts
   import { clsx, type ClassValue } from 'clsx'

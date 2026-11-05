@@ -1,7 +1,7 @@
 # Phase 1: Requirements (what, not how)
 **Gate:** Requirements baseline
 **Deliverable:** `docs/waterfall/01-requirements.md` from [the template](../assets/templates/01-requirements.md)
-**Load:** nothing beyond this file and STATUS.md
+**Load:** this file, STATUS.md, and [ui-ux](../references/ui-ux.md) §1
 
 ## Entry criteria
 - `docs/waterfall/STATUS.md` exists.
@@ -15,6 +15,7 @@
    - backend/APIs: does a backend exist? Is there a contract? How does auth work?
    - authorization rules
    - NFRs: performance, accessibility, browser/device support, i18n, security and privacy, offline
+   - UX: each role's main tasks and devices, design boards or a sibling app to match, the UX NFRs (ui-ux.md §1)
    - constraints: deadline, hosting, budget, existing code or design system
    - what is explicitly out of scope
 2. **Propose defaults; don't interrogate.** Offer a sensible default the user can accept or correct, e.g. "WCAG 2.2 AA, last 2 versions of evergreen browsers, English only, LCP < 2.5 s". Two or three rounds of questions is usually enough.

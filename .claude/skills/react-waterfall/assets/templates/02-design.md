@@ -38,7 +38,9 @@ src/
 | `/` | `HomePage` | No | todos list | FR-001 |
 
 ## 5. Components
-<!-- Per page: hierarchy; mark (ui) shared vs (feature). Note props for non-trivial components. -->
+<!-- Per page: hierarchy; mark (ui) shared vs (feature). Note props for non-trivial components.
+     Then ### Flows (numbered steps per core task) and ### Screen specs (per screen: purpose + FRs,
+     primary action, layout per breakpoint, content order, states, focus, fixed copy). See references/ui-ux.md §2–§3. -->
 ```
 HomePage
 └── TodoList (feature: todos)
@@ -82,6 +84,7 @@ Error boundaries: <per route in router config; root fallback; widgets wrapped: �
 - **Authentication & authorization:** <flow, token storage (prefer HttpOnly cookie), route guards are UX only>
 - **Security:** <CSP origins, input handling, sanitisation needs>
 - **Accessibility:** <landmarks, focus management on route change, dialog primitive>
+- **Visual design:** <style + theme (default references/design-style.md), full token table with contrast ratios, breakpoints, shells, max widths, deviations with ADRs>
 - **Performance:** <route splitting, budget, virtualisation needs>
 - **Environment variables:** <name — purpose — public (VITE_) or server-only>
 

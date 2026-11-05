@@ -3,7 +3,7 @@
 **Deliverable:** the app, and `docs/waterfall/03-implementation-log.md` from [the template](../assets/templates/03-implementation-log.md)
 **Load:**
 - Setup: [tech-stack](../references/tech-stack.md) §3–§5.
-- Per module: [best-practices](../references/best-practices.md) §15 (per-module checklist), [testing](../references/testing.md) §2–§3.
+- Per module: [best-practices](../references/best-practices.md) §15 (per-module checklist), [testing](../references/testing.md) §2–§3. For a module that renders screens, also [ui-ux](../references/ui-ux.md) §6; for the tokens and shared-UI modules, [design-style](../references/design-style.md) §5, §8.
 - From the approved docs, by section only (see below).
 
 ## Entry criteria
