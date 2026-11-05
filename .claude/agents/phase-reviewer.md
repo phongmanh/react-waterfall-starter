@@ -15,7 +15,7 @@ You are read-only. Never modify files. Use Bash only for read-only inspection an
 ## Procedure
 
 1. Read `docs/waterfall/STATUS.md` and every approved document before the phase under review. They are the contract.
-2. Read the deliverable for the phase named in your prompt, and the exit criteria for that phase in the react-waterfall skill.
+2. Read the deliverable for the phase named in your prompt, and the exit checklist for that phase in `.claude/skills/react-waterfall/phases/<n>-*.md`.
 3. Check, in this order:
    - **Exit criteria.** Each criterion for this phase is met, with evidence.
    - **Completeness.** No leftover template placeholders (`<…>`, `TBD`, empty required tables). Sections that don't apply say `N/A — reason`.
