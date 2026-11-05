@@ -7,6 +7,7 @@ This repo is an empty starting point for building a React + TypeScript web app w
 - **Use the `react-waterfall` skill** (`.claude/skills/react-waterfall/`) for all app work, from the first requirement to the final handover.
 - **This repository root is the project root.** Write docs to `docs/waterfall/` and scaffold the app into the root itself, not into a subfolder. Follow the skill's tech-stack setup, which scaffolds next to the existing files without overwriting them.
 - **`docs/waterfall/STATUS.md` says where things stand.** The SessionStart hook summarises it at the start of every session. `/waterfall-status` shows the detail.
+- **Short sessions.** Work one unit per session, then `/clear`. End every session by rewriting STATUS.md's `## Handoff` section, which the SessionStart hook injects into the next session (skill rule 6). External inputs are cached in `docs/waterfall/inputs/`, so don't re-fetch them.
 - **Process rules** are in `.claude/rules/waterfall-process.md`. Coding, testing and doc rules load automatically when matching files are touched (`.claude/rules/`).
 
 ## Slash commands
@@ -21,7 +22,7 @@ This repo is an empty starting point for building a React + TypeScript web app w
 
 | Hook | Does |
 |---|---|
-| `session-context.mjs` (SessionStart) | Injects the phase status from STATUS.md |
+| `session-context.mjs` (SessionStart) | Injects the phase status and the `## Handoff` section from STATUS.md |
 | `phase-gate.mjs` (PreToolUse) | Blocks app code, scaffolding and installs until **P2 Design** is approved. Blocks CI and deploy config until **P4 Testing** is approved. Always blocks `create-vite --overwrite` and `rm -rf docs`. |
 | `format-lint.mjs` (PostToolUse) | After an edit to an app file: runs Prettier, then oxlint. Lint errors go back to Claude. Inactive until the app is scaffolded. |
 

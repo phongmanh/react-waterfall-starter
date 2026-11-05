@@ -198,6 +198,23 @@ describe('session-context hook', () => {
     assert.match(r.stdout, /Open change requests: CR-001 \(Proposed\)/)
     assert.match(r.stdout, /awaiting the user's approval/)
   })
+
+  it('injects the Handoff section, without its comments, and caps its length', () => {
+    const handoff = '\n## Handoff\n<!-- guidance -->\n- **Next action:** write FR-007\n- **Load:** 01-requirements.md §3\n'
+    const r = runHook('session-context.mjs', project(statusDoc('Approved', 'In progress') + handoff), { source: 'clear' })
+    assert.match(r.stdout, /Handoff from the last session/)
+    assert.match(r.stdout, /Next action:\*\* write FR-007/)
+    assert.doesNotMatch(r.stdout, /guidance/)
+    const long = '\n## Handoff\n' + Array.from({ length: 50 }, (_, i) => `- line ${i}`).join('\n') + '\n'
+    const r2 = runHook('session-context.mjs', project(statusDoc('Approved', 'In progress') + long), { source: 'clear' })
+    assert.match(r2.stdout, /line 29\n… \(truncated/)
+    assert.doesNotMatch(r2.stdout, /line 30/)
+  })
+
+  it('prints no handoff block when the section is missing', () => {
+    const r = runHook('session-context.mjs', project(statusDoc('Approved', 'In progress')), { source: 'clear' })
+    assert.doesNotMatch(r.stdout, /Handoff/)
+  })
 })
 
 describe('format-lint hook', () => {
