@@ -67,7 +67,7 @@ Typos, broken links and other corrections that don't change meaning need no CR. 
 - The Requirements Traceability Matrix (RTM) in `04-test-report.md` has a row for every FR and NFR.
 
 ### 5. Standards
-`references/best-practices.md` is the coding standard, and `references/tech-stack.md` is the default stack and setup. If the target project has its own CLAUDE.md, lint config or conventions, those win where they conflict. Record each conflict in the design doc.
+`references/best-practices.md` is the coding standard, `references/tech-stack.md` is the default stack and setup, `references/ui-ux.md` is the UX process, and `references/design-style.md` is the default visual style. If the target project has its own CLAUDE.md, lint config or conventions, those win where they conflict. Record each conflict in the design doc.
 
 ### Reading on demand
 Approved documents, references and source files grow large. Reading them whole every session wastes context and pushes out what matters.
@@ -91,5 +91,7 @@ Approved documents, references and source files grow large. Reading them whole e
   | `references/best-practices.md` | Whole file before P2. In P3, read only §15 (per-module checklist) per module, and a single section when a question comes up |
   | `references/tech-stack.md` | P2: §1–§2. P3 setup: §3–§5. P5: §6–§7 |
   | `references/testing.md` | P2: §1. P3: §2–§3. P4: §4–§7 |
+  | `references/ui-ux.md` | P1: §1. P2: §2–§5. P3: §6 per screen module. P4: §7 |
+  | `references/design-style.md` | Default visual style (light and dark shell themes). P2: whole file unless the project has its own brand or design system. P3: §5, §8 for the tokens and shared-UI modules. Aligning a shipped app: §9 |
 
 - **Templates:** `assets/templates/*.md`, copied into `docs/waterfall/` at the start of each phase: [STATUS](assets/templates/STATUS.md) · [01-requirements](assets/templates/01-requirements.md) · [02-design](assets/templates/02-design.md) · [03-implementation-log](assets/templates/03-implementation-log.md) · [04-test-report](assets/templates/04-test-report.md) · [05-deployment](assets/templates/05-deployment.md) · [06-maintenance](assets/templates/06-maintenance.md)

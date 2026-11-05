@@ -30,7 +30,7 @@ Claude interviews you, writes `docs/waterfall/01-requirements.md`, and stops for
 | Path | Purpose |
 |---|---|
 | `CLAUDE.md` | Project instructions loaded into every Claude session |
-| `.claude/skills/react-waterfall/` | The skill: the phase workflow, coding standards, stack setup, testing guide, and the templates for the documents each phase produces |
+| `.claude/skills/react-waterfall/` | The skill: the phase workflow, coding standards, stack setup, testing guide, UI/UX process, default design style, and the templates for the documents each phase produces |
 | `.claude/skills/{waterfall-status,approve,change-request}/` | Slash commands `/waterfall-status`, `/approve`, `/change-request` |
 | `.claude/rules/` | Process rules (always loaded), plus TypeScript, React, testing and phase-doc rules that load when matching files are touched |
 | `.claude/agents/phase-reviewer.md` | A read-only reviewer that checks each deliverable against its exit criteria before you are asked to sign off |
