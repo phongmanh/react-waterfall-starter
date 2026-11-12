@@ -1,6 +1,7 @@
 ---
 name: react-waterfall
 description: Builds a React + TypeScript web app with the Waterfall SDLC (Requirements → Design → Implementation → Testing → Deployment → Maintenance), one signed-off deliverable per phase in docs/waterfall/, with requirement-to-test traceability. Use when the user wants a phased, stage-gated or spec-first React/TypeScript app, an SRS, design doc or traceability matrix for one, or to resume or change a project with docs/waterfall/STATUS.md. Not for one-off components or throwaway prototypes.
+model: opus
 ---
 
 # React Waterfall
