@@ -84,6 +84,9 @@ Approved documents, references and source files grow large. Reading them whole e
 - **Oversized output:** if a command's output is too large and gets saved to a file, don't read that file with `allow_large`. Rerun a narrower command.
 - **Re-read instead of remembering.** At the start of a phase or session, re-read the sections you need instead of relying on memory, since earlier context may have been summarised.
 
+## Autopilot (unattended runs)
+The project may ship a runner (`.claude/auto/waterfall-auto.mjs`) that starts one fresh headless session per unit of work. Such a session's prompt begins "Waterfall autopilot" and carries the user's standing choices from `.claude/auto/config.json`: which gates are waived, how to treat questions and change requests, and the commit policy. In that session, follow the prompt where it differs from rules 2, 3 and 6: don't ask and wait, record waived gates as `Approved (gate waived)`, and report anything only the user can do as `BLOCKED: …` on the handoff's "Waiting on user" line, which stops the runner. Everything else in this skill still applies, and so do the hooks. Without that prompt, never assume a waiver.
+
 ## Guardrails
 - Write no `any`, `@ts-ignore`, or disabled lint rule without a comment explaining why. List each such exception in the implementation log.
 - Don't pin versions from memory. Install current stable releases and let `package.json` and the lockfile be the record. If a command or config in the references no longer matches a tool's current docs, follow the docs and note the change in the log.

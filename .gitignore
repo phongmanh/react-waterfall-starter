@@ -22,6 +22,10 @@ npm-debug.log*
 
 # Claude Code personal files
 .claude/settings.local.json
+.claude/auto/config.local.json
+
+# Autopilot session logs
+.waterfall-auto/
 CLAUDE.local.md
 
 # Editors & OS

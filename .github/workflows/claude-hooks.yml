@@ -2,9 +2,9 @@ name: Claude hooks
 on:
   push:
     branches: [main]
-    paths: ['.claude/hooks/**', '.github/workflows/claude-hooks.yml']
+    paths: ['.claude/hooks/**', '.claude/auto/**', '.github/workflows/claude-hooks.yml']
   pull_request:
-    paths: ['.claude/hooks/**', '.github/workflows/claude-hooks.yml']
+    paths: ['.claude/hooks/**', '.claude/auto/**', '.github/workflows/claude-hooks.yml']
 jobs:
   test:
     runs-on: ubuntu-latest

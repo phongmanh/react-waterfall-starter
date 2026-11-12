@@ -10,6 +10,10 @@ This repo is an empty starting point for building a React + TypeScript web app w
 - **Short sessions.** Work one unit per session, then `/clear`. End every session by rewriting STATUS.md's `## Handoff` section, which the SessionStart hook injects into the next session (skill rule 6). External inputs are cached in `docs/waterfall/inputs/`, so don't re-fetch them.
 - **Process rules** are in `.claude/rules/waterfall-process.md`. Coding, testing and doc rules load automatically when matching files are touched (`.claude/rules/`).
 
+## Autopilot (no approvals, fresh session per unit)
+
+`node .claude/auto/waterfall-auto.mjs "what to build"` runs the skill unattended. Each unit of work gets a fresh headless session; a session ends at its handoff and the runner starts the next one, until the project is closed, something needs the user (`BLOCKED:` in the handoff), or a limit is hit. Options live in `.claude/auto/config.json` (personal overrides in `config.local.json`, or `--option=value`); `--help` lists them. Autopilot sessions record waived gates as `Approved (gate waived)`. The hooks still apply, and it never pushes or deploys.
+
 ## Slash commands
 
 | Command | Use |
