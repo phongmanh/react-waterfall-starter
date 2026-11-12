@@ -26,8 +26,11 @@ try {
   const open = openChangeRequests(status)
   if (open.length) lines.push(`- Open change requests: ${open.map((cr) => `${cr.id} (${cr.status})`).join(', ')}`)
   const awaiting = Object.entries(status.phases).find(([, p]) => /awaiting approval/i.test(p.status))
+  const autopilot = process.env.WATERFALL_AUTO === '1'
   lines.push(
-    awaiting
+    awaiting && autopilot
+      ? `Phase ${awaiting[0]} is awaiting approval. This is an autopilot session: apply the gate rule in the autopilot prompt (record a waived gate, or stop at a kept one).`
+      : awaiting
       ? `Phase ${awaiting[0]} is awaiting the user's approval: do not start the next phase until they explicitly approve.`
       : 'Continue with the react-waterfall skill. Read only the sections of the approved documents that the next task needs (list headings with grep first), not whole documents.',
   )

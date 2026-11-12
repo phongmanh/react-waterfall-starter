@@ -1,6 +1,7 @@
 ---
 name: react-waterfall
 description: Builds a React + TypeScript web app with the Waterfall SDLC (Requirements → Design → Implementation → Testing → Deployment → Maintenance), one signed-off deliverable per phase in docs/waterfall/, with requirement-to-test traceability. Use when the user wants a phased, stage-gated or spec-first React/TypeScript app, an SRS, design doc or traceability matrix for one, or to resume or change a project with docs/waterfall/STATUS.md. Not for one-off components or throwaway prototypes.
+model: opus
 ---
 
 # React Waterfall
@@ -82,6 +83,9 @@ Approved documents, references and source files grow large. Reading them whole e
 - **Code:** don't `cat` whole folders to get oriented. Read a module's `index.ts` and list signatures with `grep -n '^export' <files>`. Open in full only the files you'll change or copy from, and read the rest by line range (`sed -n`).
 - **Oversized output:** if a command's output is too large and gets saved to a file, don't read that file with `allow_large`. Rerun a narrower command.
 - **Re-read instead of remembering.** At the start of a phase or session, re-read the sections you need instead of relying on memory, since earlier context may have been summarised.
+
+## Autopilot (unattended runs)
+The project may ship a runner (`.claude/auto/waterfall-auto.mjs`) that starts one fresh headless session per unit of work. Such a session's prompt begins "Waterfall autopilot" and carries the user's standing choices from `.claude/auto/config.json`: which gates are waived, how to treat questions and change requests, and the commit policy. In that session, follow the prompt where it differs from rules 2, 3 and 6: don't ask and wait, record waived gates as `Approved (gate waived)`, and report anything only the user can do as `BLOCKED: …` on the handoff's "Waiting on user" line, which stops the runner. Everything else in this skill still applies, and so do the hooks. Without that prompt, never assume a waiver.
 
 ## Guardrails
 - Write no `any`, `@ts-ignore`, or disabled lint rule without a comment explaining why. List each such exception in the implementation log.

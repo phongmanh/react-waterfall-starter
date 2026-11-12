@@ -217,6 +217,15 @@ describe('session-context hook', () => {
   })
 })
 
+describe('session-context hook under the autopilot', () => {
+  it('defers a pending approval to the autopilot prompt', () => {
+    const dir = project(statusDoc('Approved', 'Awaiting approval'))
+    const r = runHook('session-context.mjs', dir, { source: 'startup' }, { WATERFALL_AUTO: '1' })
+    assert.match(r.stdout, /autopilot session/)
+    assert.doesNotMatch(r.stdout, /until they explicitly approve/)
+  })
+})
+
 describe('format-lint hook', () => {
   it('is a no-op before the app is scaffolded', () => {
     const dir = project(statusDoc('Approved', 'Approved', 'In progress'))
