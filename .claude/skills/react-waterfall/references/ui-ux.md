@@ -88,7 +88,7 @@ Walk this with best-practices.md §15 for every module that renders a screen:
 | Screen reader smoke | VoiceOver or NVDA on sign-in and one core flow: names, roles, announcements | pass/fail, notes |
 | Responsive | Playwright at 360, 768, 1024, 1440 px: no horizontal page scroll, shell switches at `lg` | pass/fail per viewport |
 | Visual consistency | Screenshots of each screen per viewport against the boards or the house style | screenshots in `test-results/`, differences logged as DEF or accepted |
-| Content | Both languages on every screen: no missing keys, no clipped text | pass/fail per language |
+| Content | Every supported language on every screen: no missing keys, no clipped text | pass/fail per language |
 | Task walkthrough | The user (or a stand-in) does each core task without help | completed / where they got stuck |
 
 A UX defect is a `DEF-###` like any other. A fix that changes a screen spec, a flow or a token is a CR.

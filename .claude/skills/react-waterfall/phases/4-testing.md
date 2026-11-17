@@ -9,7 +9,7 @@
 ## Activities
 1. Run the unit/component suite with coverage (`npm run test:coverage`).
 2. Write and run the Playwright E2E suite: at least one test per acceptance criterion that describes a user flow, plus an axe scan of every route (`npm run test:e2e`).
-3. Verify each NFR with the method the requirements named: bundle size against budget, Lighthouse for performance NFRs, a keyboard-only walkthrough of core flows, and responsive checks at the specified breakpoints. Run the UX checks in ui-ux.md §7 (screen reader smoke, both languages, task walkthrough).
+3. Verify each NFR with the method the requirements named: bundle size against budget, Lighthouse for performance NFRs, a keyboard-only walkthrough of core flows, and responsive checks at the specified breakpoints. Run the UX checks in ui-ux.md §7 (screen reader smoke, content in every supported language, task walkthrough).
 4. Log every failure as `DEF-###` (severity, requirement, steps, status). Fix it, then re-run the affected suites. A fix that changes design or requirements is a CR.
 5. Fill the RTM: for each FR/NFR, record the design reference, files, tests and Pass/Fail.
 

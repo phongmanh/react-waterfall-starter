@@ -15,4 +15,4 @@ Report the status of this waterfall project. Don't change any files.
    - open questions from the current phase's document, if any
    - **Next action:** one sentence saying what the user needs to do (approve, answer questions, review a CR) or what Claude will do next.
 
-Keep it under 25 lines.
+Keep it to the items above, one line each beyond the table.

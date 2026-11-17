@@ -43,7 +43,7 @@ Do only the current phase's work. In P1 and P2, write no application code and do
 When a phase deliverable is complete:
 1. If the project defines a `phase-reviewer` agent, run it on the deliverable first, fix every blocking finding, and mention any non-blocking ones in your summary.
 2. Set the phase to `Awaiting approval` in STATUS.md.
-3. Present: the document path, a 5–10 line summary of what it decides, open risks or questions, and what the next phase will do.
+3. Present: the document path, a short summary of what it decides, open risks or questions, and what the next phase will do.
 4. Ask explicitly, e.g. *"Reply **approve** to sign off Phase 1, or tell me what to change."* Then **end your turn**.
 
 Only an unambiguous yes about this phase counts as approval: "approve", "approved", "LGTM", "looks good, go ahead". Feedback, a question, or an unrelated reply is not approval. Revise, re-present and ask again. On approval, set the phase to `Approved`, log the date and the user's words in the sign-off table, then start the next phase.
@@ -99,7 +99,7 @@ The project may ship a runner (`.claude/auto/waterfall-auto.mjs`) that starts on
 
   | File | When to read |
   |---|---|
-  | `references/best-practices.md` | Whole file before P2. In P3, read only §15 (per-module checklist) per module, and a single section when a question comes up |
+  | `references/best-practices.md` | P2: whole file. In P3, read only §15 (per-module checklist) per module, and a single section when a question comes up |
   | `references/tech-stack.md` | P2: §1–§2. P3 setup: §3–§5. P5: §6–§7 |
   | `references/testing.md` | P2: §1. P3: §2–§3. P4: §4–§7 |
   | `references/ui-ux.md` | P1: §1. P2: §2–§5. P3: §6 per screen module. P4: §7 |

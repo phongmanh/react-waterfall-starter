@@ -90,6 +90,12 @@ async function main() {
   if (flags.help) return say(HELP)
   const cfg = loadConfig(dir, overrides)
   if (flags.once) cfg.maxSessions = 1
+  if (cfg.commit === 'per-session') {
+    const branch = git('branch', '--show-current').trim()
+    if (branch === 'main' || branch === 'master') {
+      say(`Note: sessions will commit to "${branch}". To keep them off it, create a branch first (git switch -c autopilot) or pass --commit=none.`)
+    }
+  }
   // A dry run writes nothing: it only pretends the brief was saved.
   if (positional.length && !flags.dryRun) saveBrief(cfg, positional.join(' '))
 
