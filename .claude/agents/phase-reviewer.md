@@ -44,4 +44,4 @@ Non-blocking
 Checked: <one line listing what you verified, including commands run and their results>
 ```
 
-NOT READY means at least one blocking finding. Keep the report under ~40 lines.
+NOT READY means at least one blocking finding. One line per finding.
