@@ -22,7 +22,7 @@
     "Bash(npm create *)",
     "Bash(npm pkg *)",
     "Bash(npm ls *)",
-    "Bash(npx *)",
+    "Bash(npx playwright install *)",
     "Bash(node *)",
     "Bash(mkdir *)",
     "Bash(cp *)",
@@ -34,7 +34,7 @@
     "Bash(rm -rf src/assets src/App.css src/App.tsx)",
     "Bash(git rev-parse *)",
     "Bash(git show *)",
-    "Bash(git branch *)"
+    "Bash(git branch --show-current)"
   ],
   "extraPrompt": "",
   "logDir": ".waterfall-auto/logs",
